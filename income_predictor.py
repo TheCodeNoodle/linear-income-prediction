@@ -2,12 +2,10 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 
-
 dataset = {
     "Months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
     "Income (USD)": [132.17, 158.63, 161.57, 176.02, 214.53, 282.53, 225.43, "N/A", "N/A", "N/A", "N/A", "N/A"]
 }
-
 df = pd.DataFrame(dataset)
 
 #--------------Converting month names to numerical order--------------
@@ -29,6 +27,8 @@ model.fit(X, y)
 future_months = pd.DataFrame({"Month_num": list(range(8, 13))})
 future_predictions = model.predict(future_months)
 
+#--------------Ensures predictions are non-negative--------------
+future_predictions = [max(0, pred) for pred in future_predictions]
 for i, month in enumerate(df["Months"][7:]):
     print(f"Predicted income for {month}: ${future_predictions[i]:.2f}")
 
