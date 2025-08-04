@@ -50,8 +50,8 @@ Dec: $291.49
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/TheCodeNoodle/monthly-income-predictor.git
-cd monthly-income-predictor
+git clone https://github.com/TheCodeNoodle/linear-income-prediction.git
+cd linear-income-prediction
 ```
 
 ### 2. Install dependencies
